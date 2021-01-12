@@ -10,6 +10,10 @@ public class Employee {
     private String note;
     private BigDecimal manHour;
 
+
+    public Employee() {
+    }
+
     public Employee(String name, String secondName, String phone, String note, BigDecimal manHour) {
         this.name = name;
         this.secondName = secondName;

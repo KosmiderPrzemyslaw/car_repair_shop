@@ -15,6 +15,10 @@ public class Order {
     private BigDecimal employeeManHour;
     private int numberOfManHours;
 
+
+    public Order() {
+    }
+
     public Order(Date scheduledDateForTheStartOfRepair, Date repairStartDate, String descriptionOfTheProblem, String repairDescription, BigDecimal repairCost, BigDecimal costOfparts, BigDecimal employeeManHour, int numberOfManHours) {
         this.scheduledDateForTheStartOfRepair = scheduledDateForTheStartOfRepair;
         this.repairStartDate = repairStartDate;

@@ -9,6 +9,9 @@ public class Status {
     private String resignation;
 
 
+    public Status() {
+    }
+
     public Status(String adopted, String approvedRepairCost, String inRepair, String readyForPickUp, String resignation) {
         this.adopted = adopted;
         this.approvedRepairCost = approvedRepairCost;

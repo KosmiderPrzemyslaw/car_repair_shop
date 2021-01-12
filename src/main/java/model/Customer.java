@@ -1,14 +1,19 @@
 package model;
 
-import java.sql.Date;
+
+import java.time.LocalDate;
 
 public class Customer {
     private int id;
     private String name;
     private String secondName;
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
-    public Customer(String name, String secondName, Date dateOfBirth) {
+
+    public Customer() {
+    }
+
+    public Customer(String name, String secondName, LocalDate dateOfBirth) {
         this.name = name;
         this.secondName = secondName;
         this.dateOfBirth = dateOfBirth;
@@ -38,11 +43,11 @@ public class Customer {
         this.secondName = secondName;
     }
 
-    public Date getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
-    public void setDateOfBirth(Date dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

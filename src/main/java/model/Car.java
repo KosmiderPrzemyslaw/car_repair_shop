@@ -11,6 +11,8 @@ public class Car {
     private String registrationNumber;
     private Date nextInspection;
 
+    public Car() {
+    }
 
     public Car(String model, String mark, Year yearOfProduction, String registrationNumber, Date nextInspection) {
         this.model = model;
