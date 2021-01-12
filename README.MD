@@ -1,0 +1,1 @@
+The aim of the project is to design a CRM system for a car repair shop. The project is to use (servlets and JSP). The project is to use the data access layer in the form of DAO classes.
