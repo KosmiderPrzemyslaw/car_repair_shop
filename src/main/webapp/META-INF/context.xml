@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Resource name="jdbc/Programming_school"
+              auth="Container"
+              type="javax.sql.DataSource"
+              username="root"
+              password="coderslab"
+              driverClassName="com.mysql.jdbc.Driver"
+              connectionProperties="useUnicode=yes;characterEncoding=utf8;"
+              url="jdbc:mysql://localhost:3306/Programming_school?useSSL=false"
+              maxTotal="1000"
+              maxIdle="30"
+              maxWaitMillis="100000" />
+</Context>
