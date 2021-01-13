@@ -53,4 +53,52 @@ public class CustomerDao {
         }
         return null;
     }
+
+    public void delete(int customerId) {
+        try {
+            Connection connection = DbUtil.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE * FROM customer WHERE id = ?");
+            preparedStatement.setInt(1, customerId);
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void update(Customer customer) {
+        try {
+            Connection connection = DbUtil.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE customer SET id = ?, name = ? , secondName = ?, dateOfBirth = ? WHERE id = ?");
+            preparedStatement.setInt(1, customer.getId());
+            preparedStatement.setString(2, customer.getName());
+            preparedStatement.setString(3, customer.getSecondName());
+            preparedStatement.setObject(4, customer.getDateOfBirth());
+            preparedStatement.setInt(5, customer.getId());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public Customer findCustomerById(int id) {
+        try {
+            Connection connection = DbUtil.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM customer where id = ?");
+            preparedStatement.setInt(1, id);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            Customer customer = new Customer();
+            customer.setId(resultSet.getInt("id"));
+            customer.setName(resultSet.getString("name"));
+            customer.setSecondName(resultSet.getString("secondName"));
+            customer.setDateOfBirth(resultSet.getObject("dateOfBirth", LocalDate.class));
+
+            return customer;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
 }
