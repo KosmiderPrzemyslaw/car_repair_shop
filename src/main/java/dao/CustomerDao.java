@@ -22,7 +22,7 @@ public class CustomerDao {
                 Customer customer = new Customer();
                 customer.setId(resultSet.getInt("id"));
                 customer.setName(resultSet.getString("name"));
-                customer.setName(resultSet.getString("secondName"));
+                customer.setSecondName(resultSet.getString("secondName"));
                 customer.setDateOfBirth(resultSet.getObject("dateOfBirth", LocalDate.class));
                 customerList.add(customer);
             }
@@ -36,8 +36,7 @@ public class CustomerDao {
     public Customer create(Customer customer) {
         try {
             Connection connection = DbUtil.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO customer(name, secondName, dateOfBirth) VALUES (?,?,?)",
-                    PreparedStatement.RETURN_GENERATED_KEYS);
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO customer(name, secondName, dateOfBirth) VALUES (?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
             preparedStatement.setString(1, customer.getName());
             preparedStatement.setString(2, customer.getSecondName());
             preparedStatement.setObject(3, customer.getDateOfBirth());
@@ -57,7 +56,7 @@ public class CustomerDao {
     public void delete(int customerId) {
         try {
             Connection connection = DbUtil.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("DELETE * FROM customer WHERE id = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("DELETE customer FROM customer WHERE id = ?");
             preparedStatement.setInt(1, customerId);
             preparedStatement.executeUpdate();
 
@@ -88,13 +87,16 @@ public class CustomerDao {
             preparedStatement.setInt(1, id);
             ResultSet resultSet = preparedStatement.executeQuery();
 
-            Customer customer = new Customer();
-            customer.setId(resultSet.getInt("id"));
-            customer.setName(resultSet.getString("name"));
-            customer.setSecondName(resultSet.getString("secondName"));
-            customer.setDateOfBirth(resultSet.getObject("dateOfBirth", LocalDate.class));
+            while (resultSet.next()) {
+                Customer customer = new Customer();
+                customer.setId(resultSet.getInt("id"));
+                customer.setName(resultSet.getString("name"));
+                customer.setSecondName(resultSet.getString("secondName"));
+                customer.setDateOfBirth(resultSet.getObject("dateOfBirth", LocalDate.class));
 
-            return customer;
+                return customer;
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
