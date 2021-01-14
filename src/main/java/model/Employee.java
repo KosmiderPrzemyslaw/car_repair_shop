@@ -69,4 +69,16 @@ public class Employee {
     public void setManHour(BigDecimal manHour) {
         this.manHour = manHour;
     }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", note='" + note + '\'' +
+                ", manHour=" + manHour +
+                '}';
+    }
 }

@@ -2,12 +2,13 @@ package model;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.time.LocalDate;
 
 public class Order {
     private int id;
-    private Date dateOfAcceptanceForRepair;
-    private Date scheduledDateForTheStartOfRepair;
-    private Date repairStartDate;
+    private LocalDate dateOfAcceptanceForRepair;
+    private LocalDate scheduledDateForTheStartOfRepair;
+    private LocalDate repairStartDate;
     private String descriptionOfTheProblem;
     private String repairDescription;
     private BigDecimal repairCost;
@@ -19,13 +20,14 @@ public class Order {
     public Order() {
     }
 
-    public Order(Date scheduledDateForTheStartOfRepair, Date repairStartDate, String descriptionOfTheProblem, String repairDescription, BigDecimal repairCost, BigDecimal costOfparts, BigDecimal employeeManHour, int numberOfManHours) {
+    public Order(LocalDate dateOfAcceptanceForRepair, LocalDate scheduledDateForTheStartOfRepair, LocalDate repairStartDate, String descriptionOfTheProblem, String repairDescription, BigDecimal repairCost, BigDecimal costOfParts, BigDecimal employeeManHour, int numberOfManHours) {
+        this.dateOfAcceptanceForRepair = dateOfAcceptanceForRepair;
         this.scheduledDateForTheStartOfRepair = scheduledDateForTheStartOfRepair;
         this.repairStartDate = repairStartDate;
         this.descriptionOfTheProblem = descriptionOfTheProblem;
         this.repairDescription = repairDescription;
         this.repairCost = repairCost;
-        this.costOfParts = costOfparts;
+        this.costOfParts = costOfParts;
         this.employeeManHour = employeeManHour;
         this.numberOfManHours = numberOfManHours;
     }
@@ -38,27 +40,27 @@ public class Order {
         this.id = id;
     }
 
-    public Date getDateOfAcceptanceForRepair() {
+    public LocalDate getDateOfAcceptanceForRepair() {
         return dateOfAcceptanceForRepair;
     }
 
-    public void setDateOfAcceptanceForRepair(Date dateOfAcceptanceForRepair) {
+    public void setDateOfAcceptanceForRepair(LocalDate dateOfAcceptanceForRepair) {
         this.dateOfAcceptanceForRepair = dateOfAcceptanceForRepair;
     }
 
-    public Date getScheduledDateForTheStartOfRepair() {
+    public LocalDate getScheduledDateForTheStartOfRepair() {
         return scheduledDateForTheStartOfRepair;
     }
 
-    public void setScheduledDateForTheStartOfRepair(Date scheduledDateForTheStartOfRepair) {
+    public void setScheduledDateForTheStartOfRepair(LocalDate scheduledDateForTheStartOfRepair) {
         this.scheduledDateForTheStartOfRepair = scheduledDateForTheStartOfRepair;
     }
 
-    public Date getRepairStartDate() {
+    public LocalDate getRepairStartDate() {
         return repairStartDate;
     }
 
-    public void setRepairStartDate(Date repairStartDate) {
+    public void setRepairStartDate(LocalDate repairStartDate) {
         this.repairStartDate = repairStartDate;
     }
 
@@ -124,5 +126,11 @@ public class Order {
                 ", employeeManHour=" + employeeManHour +
                 ", numberOfManHours=" + numberOfManHours +
                 '}';
+    }
+
+    public void setStatusId(int statusId) {
+    }
+
+    public void setCarId(int car_id) {
     }
 }

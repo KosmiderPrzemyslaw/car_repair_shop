@@ -54,7 +54,7 @@ DROP TABLE IF EXISTS `customer`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `customer` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_polish_ci DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8_polish_ci DEFAULT NULL,
   `secondName` varchar(255) COLLATE utf8_polish_ci DEFAULT NULL,
   `dateOfBirth` date DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -79,7 +79,7 @@ DROP TABLE IF EXISTS `employee`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `employee` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) COLLATE utf8_polish_ci DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8_polish_ci DEFAULT NULL,
   `secondName` varchar(255) COLLATE utf8_polish_ci DEFAULT NULL,
   `phone` varchar(50) COLLATE utf8_polish_ci DEFAULT NULL,
   `note` text COLLATE utf8_polish_ci,
