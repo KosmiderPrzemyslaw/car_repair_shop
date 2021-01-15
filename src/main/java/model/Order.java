@@ -1,7 +1,6 @@
 package model;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.time.LocalDate;
 
 public class Order {
@@ -9,28 +8,34 @@ public class Order {
     private LocalDate dateOfAcceptanceForRepair;
     private LocalDate scheduledDateForTheStartOfRepair;
     private LocalDate repairStartDate;
+    private int employeeId;
     private String descriptionOfTheProblem;
     private String repairDescription;
+    private int statusId;
+    private int carId;
     private BigDecimal repairCost;
     private BigDecimal costOfParts;
     private BigDecimal employeeManHour;
     private int numberOfManHours;
 
-
-    public Order() {
-    }
-
-    public Order(LocalDate dateOfAcceptanceForRepair, LocalDate scheduledDateForTheStartOfRepair, LocalDate repairStartDate, String descriptionOfTheProblem, String repairDescription, BigDecimal repairCost, BigDecimal costOfParts, BigDecimal employeeManHour, int numberOfManHours) {
+    public Order(LocalDate dateOfAcceptanceForRepair, LocalDate scheduledDateForTheStartOfRepair, LocalDate repairStartDate, int employeeId, String descriptionOfTheProblem, String repairDescription, int statusId, int carId, BigDecimal repairCost, BigDecimal costOfParts, BigDecimal employeeManHour, int numberOfManHours) {
         this.dateOfAcceptanceForRepair = dateOfAcceptanceForRepair;
         this.scheduledDateForTheStartOfRepair = scheduledDateForTheStartOfRepair;
         this.repairStartDate = repairStartDate;
+        this.employeeId = employeeId;
+        this.carId = carId;
         this.descriptionOfTheProblem = descriptionOfTheProblem;
         this.repairDescription = repairDescription;
+        this.statusId = statusId;
         this.repairCost = repairCost;
         this.costOfParts = costOfParts;
         this.employeeManHour = employeeManHour;
         this.numberOfManHours = numberOfManHours;
     }
+
+    public Order() {
+    }
+
 
     public int getId() {
         return id;
@@ -112,10 +117,36 @@ public class Order {
         this.numberOfManHours = numberOfManHours;
     }
 
+
+    public void setStatusId(int statusId) {
+    }
+
+    public void setCarId(int car_id) {
+    }
+
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public void setEmployeeId(int employeeId) {
+        this.employeeId = employeeId;
+    }
+
+    public int getStatusId() {
+        return statusId;
+    }
+
+    public int getCarId() {
+        return carId;
+    }
+
     @Override
     public String toString() {
         return "Order{" +
                 "id=" + id +
+                ", employeeId=" + employeeId +
+                ", statusId=" + statusId +
+                ", carId=" + carId +
                 ", dateOfAcceptanceForRepair=" + dateOfAcceptanceForRepair +
                 ", scheduledDateForTheStartOfRepair=" + scheduledDateForTheStartOfRepair +
                 ", repairStartDate=" + repairStartDate +
@@ -126,11 +157,5 @@ public class Order {
                 ", employeeManHour=" + employeeManHour +
                 ", numberOfManHours=" + numberOfManHours +
                 '}';
-    }
-
-    public void setStatusId(int statusId) {
-    }
-
-    public void setCarId(int car_id) {
     }
 }
