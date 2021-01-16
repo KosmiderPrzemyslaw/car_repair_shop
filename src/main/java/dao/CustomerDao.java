@@ -101,6 +101,5 @@ public class CustomerDao {
             e.printStackTrace();
         }
         return null;
-
     }
 }

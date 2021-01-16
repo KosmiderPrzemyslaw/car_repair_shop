@@ -39,5 +39,12 @@ public class OrderController extends HttpServlet {
         printWriter.println(order1);
 
         orderDao.delete(2);
+
+        order2.setDescriptionOfTheProblem("changed using update");
+        order2.setRepairDescription("changed using update");
+        orderDao.update(order2);
+
+        Order orderById = orderDao.findById(32);
+        printWriter.println("FIND ORDER BY ID: \n" + orderById);
     }
 }
