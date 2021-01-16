@@ -117,11 +117,11 @@ public class CarDao {
         return null;
     }
 
-    public void assignCarToClient(int clientId, int carId) {
+    public void assignCarToCustomer(int customerId, int carId) {
         try {
             Connection connection = DbUtil.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement("UPDATE car SET customer_id = ? WHERE id = ?");
-            preparedStatement.setInt(1, clientId);
+            preparedStatement.setInt(1, customerId);
             preparedStatement.setInt(2, carId);
             preparedStatement.executeUpdate();
 

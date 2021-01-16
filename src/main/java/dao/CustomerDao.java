@@ -102,4 +102,27 @@ public class CustomerDao {
         }
         return null;
     }
+
+    public Customer findBySecondName(String secondName){
+        try {
+            Connection connection = DbUtil.getConnection();
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM customer where secondName = ?");
+            preparedStatement.setString(1, secondName);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                Customer customer = new Customer();
+                customer.setId(resultSet.getInt( "id"));
+                customer.setName(resultSet.getString("name"));
+                customer.setSecondName(resultSet.getString("secondName"));
+                customer.setDateOfBirth(resultSet.getObject("dateOfBirth", LocalDate.class));
+                return customer;
+            }
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

@@ -44,6 +44,6 @@ public class CarController extends HttpServlet {
 
         carDao.update(byId);
 
-        carDao.assignCarToClient(1, 2);
+        carDao.assignCarToCustomer(1, 2);
     }
 }

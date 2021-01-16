@@ -46,5 +46,7 @@ public class OrderController extends HttpServlet {
 
         Order orderById = orderDao.findById(32);
         printWriter.println("FIND ORDER BY ID: \n" + orderById);
+
+        orderDao.updateStatus(4, 32);
     }
 }
